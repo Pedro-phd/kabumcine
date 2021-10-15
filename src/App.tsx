@@ -1,11 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./global.css"
+import SearchBar from './components/SearchBar'
+import AddMovie from './components/AddMovie'
+import Movie from './components/Movie';
+import Title from './components/Title'
 
 function App() {
   return (
     <div className="App">
-      Teste kabom!
+      <Title/>
+      <SearchBar/>
+      <AddMovie/>
+      <Movie 
+        title="O Poderoso Chefão." 
+        categories={['ação','aventura','comédia']} 
+        favorite={true}  
+      />
+      <Movie 
+        title="O Poderoso Chefão." 
+        categories={['ação','aventura','comédia']} 
+        favorite={false}  
+      />
+      <Movie 
+        title="O Poderoso Chefão." 
+        categories={['ação','aventura','comédia']} 
+        favorite={true}  
+      />
+      <Movie 
+        title="O Poderoso Chefão." 
+        categories={['ação','aventura','comédia']} 
+        favorite={false}  
+      />
     </div>
   );
 }
