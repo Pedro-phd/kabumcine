@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./global.css"
+
 import SearchBar from './components/SearchBar'
 import AddMovie from './components/AddMovie'
 import Movie from './components/Movie';
 import Title from './components/Title'
 
 function App() {
+
   return (
     <div className="App">
       <Title/>
