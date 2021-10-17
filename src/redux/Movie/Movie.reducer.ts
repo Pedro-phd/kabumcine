@@ -1,21 +1,24 @@
-interface action{
-    type: String,
-    payload: movie
+import { IReduxAction, IMovieReducer } from '../../typings'
+
+const initialState:IMovieReducer = {
+      movieList:[]
 }
-interface movie{
-    title: String;
-    categories: Array<String>;
-    favorite: boolean;
-    id: number
-}
-export default function(state = [{}], action: action) {
-    switch(action.type){
+
+export default function MovieReducer(state = initialState, action: IReduxAction) {
+    switch(action.type) {
         case 'ADD':
-            state.push(action.payload)
-            return state
+            return {
+                movieList: action.payload
+            }
         case 'REMOVE':
-            let index = state.indexOf((e: { id: number }) => e.id == action.payload.id)
-            state.splice(index,1)
+            return {
+                movieList: action.payload
+            }
+        case 'SEARCH':
+            return {
+                movieList: action.payload
+            }
+        default:
             return state
     }
 }

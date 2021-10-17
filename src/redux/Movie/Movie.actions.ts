@@ -1,31 +1,29 @@
-interface add {
-    title: String;
-    categories: Array<String>;
-    favorite: boolean;
-    id: number 
-  }
-interface remove {
-    title: String;
-    categories: Array<String>;
-    favorite: boolean;
-    id: number 
-}
-export function add({title,categories,favorite,id}: add){
+
+import {IMovie,IMovieReducer} from '../../typings'
+export function Add({title,categories,favorite}:IMovie,movies: IMovieReducer){
+
+    const movieList = [
+        ...movies.movieList,
+        {title,categories,favorite}
+    ]
     return {
         type: 'ADD',
-        payload:{
-            title,
-            categories,
-            favorite,
-            id
-        }
+        payload: movieList
     }
 }
-export function remove({id}:remove){
+export function remove(id:number, movies:IMovieReducer){
+    const movieList = movies.movieList
+    movieList.splice(id,1)
     return {
         type: 'REMOVE',
-        payload:{
-            id
-        }
+        payload: movieList
+    }
+}
+
+export function search(word:string, movies:IMovieReducer){
+    const movieList = movies.movieList.filter((movie:IMovie) => movie.title.includes(word))
+    return {
+        type: 'SEARCH',
+        payload: movieList
     }
 }

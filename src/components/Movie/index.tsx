@@ -7,14 +7,26 @@ import {
   TrashButton,
   TitleContainer 
 } from './styles';
-import {FavoriteFalse, FavoriteTrue, Trash} from '../Icons'
+import { FavoriteFalse, FavoriteTrue, Trash} from '../Icons'
+import { useSelector, useDispatch} from 'react-redux'
+import { remove } from '../../redux/Movie/Movie.actions'
+import { IRootReducer } from '../../typings';
 interface MovieProps {
   title: String;
   categories: Array<String>;
   favorite: boolean;
+  index: number
 }
+function Movie({ title,categories,favorite, index }: MovieProps) {
 
-function Movie({ title,categories,favorite }: MovieProps) {
+  const movie = useSelector((state:IRootReducer) => state.movie)
+  const dispatch = useDispatch()
+
+  const handleRemove = (index:number) =>{
+    console.log(index)
+    dispatch(remove(index,movie))
+  }
+
   return (
     <Container>
       <HeaderContainer>
@@ -24,7 +36,9 @@ function Movie({ title,categories,favorite }: MovieProps) {
             {favorite ? <FavoriteTrue/> : <FavoriteFalse/>}
           </Favorite>
         </TitleContainer>
-          <TrashButton>
+          <TrashButton onClick={() =>{
+            handleRemove(index)
+          }}>
             <Trash/>
           </TrashButton>
       </HeaderContainer>
