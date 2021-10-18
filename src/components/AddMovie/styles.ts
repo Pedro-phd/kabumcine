@@ -21,6 +21,22 @@ export const Button = styled.button`
   height: 50px;
   outline: none;
 `;
+
+export const Close = styled.button`
+  width: 100%;
+  max-width: 170px;
+  background-color: none;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  margin: 20px auto 0;
+  height: 50px;
+  outline: none;
+  color: #ad2828;
+`;
+
 export const TitleInput = styled.input`
   font-style: italic;
   max-width: 600px;
@@ -34,6 +50,9 @@ export const TitleInput = styled.input`
   padding-left: 25px;
   border-radius: 10px;
   margin: 0 auto;
+  @media screen and (max-width: 768px){
+    max-width: 300px;
+  }
 `;
 export const Input = styled.input`
   font-style: italic;
@@ -48,6 +67,7 @@ export const Input = styled.input`
   padding-left: 25px;
   border-radius: 10px;
   margin: 0 auto;
+  
 `;
 
 export const Filter = styled.div`
@@ -57,6 +77,9 @@ export const Filter = styled.div`
   margin: 40px auto;
   flex-direction: row;
   justify-content: space-evenly;
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+  }
 `;
 export const CheckContainer = styled.div`
   display: flex;
@@ -82,6 +105,10 @@ export const Label = styled.label`
   font-size: 12px;
   font-style: italic;
   margin-left: 5px;
+  @media screen and (max-width: 768px){
+    text-align:center;
+    margin-bottom:10px;
+  }
 `;
 
 export const InputField = styled.div`

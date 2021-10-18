@@ -10,6 +10,7 @@ import {
   ModalContainer,
   Label,
   InputField,
+  Close,
 } from './styles';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -92,6 +93,7 @@ function AddMovie() {
             </Filter>
             <Button>Adicionar Filme</Button>
           </Form>
+          <Close onClick={() => closeModal()}>Cancelar</Close>
         </ModalContainer>
       </Modal>
     </>

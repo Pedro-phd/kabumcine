@@ -90,7 +90,8 @@ export const Input = styled.input`
   font-size: 12px;
   color: #a4a3a3;
   border: none;
-  padding-left: 25px;
+  padding: 0 5px;
+  text-align: center;
   border-radius: 5px;
   margin-left: 5px;
 `;
