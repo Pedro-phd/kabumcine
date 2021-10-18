@@ -1,42 +1,45 @@
-import { 
-  Container, 
-  Title, 
-  Categorie, 
+import {
+  Container,
+  Title,
+  Categorie,
   Favorite,
   HeaderContainer,
   TrashButton,
-  TitleContainer 
+  TitleContainer,
 } from './styles';
-import {FavoriteFalse, FavoriteTrue, Trash} from '../Icons'
-interface MovieProps {
-  title: String;
-  categories: Array<String>;
-  favorite: boolean;
-}
+import { FavoriteFalse, FavoriteTrue, Trash } from '../Icons';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove } from '../../redux/Movie/Movie.actions';
+import { IMovie, IRootReducer } from '../../typings';
 
-function Movie({ title,categories,favorite }: MovieProps) {
+function Movie({ title, categories, favorite, index }: IMovie) {
+  const movie = useSelector((state: IRootReducer) => state.movie);
+  const dispatch = useDispatch();
+
+  const handleRemove = (index: number) => {
+    dispatch(remove(index, movie));
+  };
+
   return (
     <Container>
       <HeaderContainer>
         <TitleContainer>
           <Title>{title}</Title>
-          <Favorite>
-            {favorite ? <FavoriteTrue/> : <FavoriteFalse/>}
-          </Favorite>
+          <Favorite>{favorite ? <FavoriteTrue /> : <FavoriteFalse />}</Favorite>
         </TitleContainer>
-          <TrashButton>
-            <Trash/>
-          </TrashButton>
+        <TrashButton
+          onClick={() => {
+            handleRemove(index);
+          }}
+        >
+          <Trash />
+        </TrashButton>
       </HeaderContainer>
-
-      {categories.map((categorie) =>{
-        return(
-          <Categorie key={Math.random()}>{categorie}</Categorie>
-        )
+      {categories.map((categorie) => {
+        return <Categorie key={Math.random()}>{categorie}</Categorie>;
       })}
-      
     </Container>
   );
-};
+}
 
 export default Movie;

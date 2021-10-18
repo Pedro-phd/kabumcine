@@ -1,36 +1,20 @@
-import React from 'react';
-import "./global.css"
-import SearchBar from './components/SearchBar'
-import AddMovie from './components/AddMovie'
-import Movie from './components/Movie';
-import Title from './components/Title'
+import { useState } from 'react';
+
+import './global.css';
+import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
+import Result from './components/Result';
+import Title from './components/Title';
 
 function App() {
+  const [filterList, setFilterList] = useState('');
+
   return (
-    <div className="App">
-      <Title/>
-      <SearchBar/>
-      <AddMovie/>
-      <Movie 
-        title="O Poderoso Chefão." 
-        categories={['ação','aventura','comédia']} 
-        favorite={true}  
-      />
-      <Movie 
-        title="O Poderoso Chefão." 
-        categories={['ação','aventura','comédia']} 
-        favorite={false}  
-      />
-      <Movie 
-        title="O Poderoso Chefão." 
-        categories={['ação','aventura','comédia']} 
-        favorite={true}  
-      />
-      <Movie 
-        title="O Poderoso Chefão." 
-        categories={['ação','aventura','comédia']} 
-        favorite={false}  
-      />
+    <div className='App'>
+      <Title />
+      <SearchBar />
+      <AddMovie />
+      <Result />
     </div>
   );
 }
