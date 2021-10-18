@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { IMovie, IRootReducer } from '../../typings';
 
 function Result() {
-  const [movieList, setMovieList] = useState<Array<any>>([]);
+  const [movieList, setMovieList] = useState<Array<IMovie>>([]);
 
   const movies = useSelector((state: IRootReducer) => state.movie);
 
