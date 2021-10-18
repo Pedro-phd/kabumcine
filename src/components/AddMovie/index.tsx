@@ -43,22 +43,30 @@ function AddMovie() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    dispatch(
-      Add(
-        {
-          title: data.title,
-          categories: data.categories.split(';'),
-          labels: data.labels.split(';'),
-          favorite: data.favorite,
-        },
-        movies
-      )
-    );
-    Swal.fire(
-      'Filme adicionado com sucesso!',
-      `Filme ${data.title} adicionado a sua lista!`,
-      'success'
-    );
+    if (data.title.trim() != '') {
+      dispatch(
+        Add(
+          {
+            title: data.title,
+            categories: data.categories.split(';'),
+            labels: data.labels.split(';'),
+            favorite: data.favorite,
+          },
+          movies
+        )
+      );
+      Swal.fire(
+        'Filme adicionado com sucesso!',
+        `Filme ${data.title} adicionado a sua lista!`,
+        'success'
+      );
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'O campo titulo é obrigatorio!',
+      });
+    }
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);

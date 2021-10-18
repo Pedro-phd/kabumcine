@@ -40,10 +40,14 @@ function Movie({ title, categories, favorite, index, labels }: IMovie) {
         </TrashButton>
       </HeaderContainer>
       {categories.map((categorie) => {
-        return <Categorie key={Math.random()}>{categorie}</Categorie>;
+        return categorie != '' ? (
+          <Categorie key={Math.random()}>{categorie}</Categorie>
+        ) : null;
       })}
       {labels.map((label) => {
-        return <Labels key={Math.random()}>{label}</Labels>;
+        return label != '' ? (
+          <Labels key={Math.random()}>{label}</Labels>
+        ) : null;
       })}
       <Toaster />
     </Container>
