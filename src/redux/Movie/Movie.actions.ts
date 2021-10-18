@@ -1,4 +1,3 @@
-
 import {IMovie,IMovieReducer} from '../../typings'
 export function Add({title,categories,favorite}:IMovie,movies: IMovieReducer){
 

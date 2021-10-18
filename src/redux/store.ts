@@ -1,10 +1,10 @@
-import {createStore, combineReducers } from 'redux'
-import MovieReducer from './Movie/Movie.reducer'
+import { createStore, combineReducers } from 'redux';
+import MovieReducer from './Movie/Movie.reducer';
 
 const rootReducer = combineReducers({
-    movie: MovieReducer
-})
+  movie: MovieReducer,
+});
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer);
 
-export default store
+export default store;
