@@ -1,9 +1,9 @@
 import {IMovie,IMovieReducer} from '../../typings'
-export function Add({title,categories,favorite}:IMovie,movies: IMovieReducer){
+export function Add({title,categories,favorite,labels}:IMovie,movies: IMovieReducer){
 
     const movieList = [
         ...movies.movieList,
-        {title,categories,favorite}
+        {title,categories,favorite,labels}
     ]
     return {
         type: 'ADD',

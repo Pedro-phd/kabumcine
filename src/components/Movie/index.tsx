@@ -2,6 +2,7 @@ import {
   Container,
   Title,
   Categorie,
+  Labels,
   Favorite,
   HeaderContainer,
   TrashButton,
@@ -12,10 +13,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { remove } from '../../redux/Movie/Movie.actions';
 import { IMovie, IRootReducer } from '../../typings';
 
-function Movie({ title, categories, favorite, index }: IMovie) {
+function Movie({ title, categories, favorite, index, labels }: IMovie) {
   const movie = useSelector((state: IRootReducer) => state.movie);
   const dispatch = useDispatch();
-
+  console.log('categories', categories, 'labels', labels);
   const handleRemove = (index: number) => {
     dispatch(remove(index, movie));
   };
@@ -37,6 +38,9 @@ function Movie({ title, categories, favorite, index }: IMovie) {
       </HeaderContainer>
       {categories.map((categorie) => {
         return <Categorie key={Math.random()}>{categorie}</Categorie>;
+      })}
+      {labels.map((label) => {
+        return <Labels key={Math.random()}>{label}</Labels>;
       })}
     </Container>
   );

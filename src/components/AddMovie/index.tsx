@@ -5,11 +5,11 @@ import {
   Title,
   Button,
   TitleInput,
-  Label,
-  Checkbox,
-  CheckContainer,
+  Input,
   Filter,
   ModalContainer,
+  Label,
+  InputField,
 } from './styles';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,16 +39,13 @@ function AddMovie() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    console.log(data.labels.split(';'));
     dispatch(
       Add(
         {
           title: data.title,
-          categories: [
-            data.action ? 'Ação' : '',
-            data.adventure ? 'Aventura' : '',
-            data.comedy ? 'Comédia' : '',
-          ],
+          categories: data.categories.split(';'),
+          labels: data.labels.split(';'),
           favorite: data.favorite,
         },
         movies
@@ -79,22 +76,14 @@ function AddMovie() {
           <Form onSubmit={handleSubmit(onSubmit)}>
             <TitleInput {...register('title')} />
             <Filter>
-              <CheckContainer>
-                <Checkbox type='checkbox' {...register('favorite')} />
-                <Label>Favoritos</Label>
-              </CheckContainer>
-              <CheckContainer>
-                <Checkbox type='checkbox' {...register('action')} />
-                <Label>Ação</Label>
-              </CheckContainer>
-              <CheckContainer>
-                <Checkbox type='checkbox' {...register('adventure')} />
-                <Label>Aventura</Label>
-              </CheckContainer>
-              <CheckContainer>
-                <Checkbox type='checkbox' {...register('comedy')} />
-                <Label>Comédia</Label>
-              </CheckContainer>
+              <InputField>
+                <Input {...register('categories')} />
+                <Label>Separe por ; as categorias</Label>
+              </InputField>
+              <InputField>
+                <Input {...register('labels')} />
+                <Label>Separe por ; as labels</Label>
+              </InputField>
             </Filter>
             <Button>Adicionar Filme</Button>
           </Form>

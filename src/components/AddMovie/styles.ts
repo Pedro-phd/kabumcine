@@ -33,8 +33,20 @@ export const TitleInput = styled.input`
   border: none;
   padding-left: 25px;
   border-radius: 10px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  margin: 0 auto;
+`;
+export const Input = styled.input`
+  font-style: italic;
+  max-width: 200px;
+  width: 100%;
+  background-color: #ebebeb;
+  height: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #a4a3a3;
+  border: none;
+  padding-left: 25px;
+  border-radius: 10px;
   margin: 0 auto;
 `;
 
@@ -67,11 +79,15 @@ export const Checkbox = styled.input`
 `;
 export const Label = styled.label`
   color: #a4a3a3;
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   margin-left: 5px;
-  font-weight: 700;
 `;
+
+export const InputField = styled.div`
+  display:flex;
+  flex-direction: column;
+`
 
 export const Title = styled.h1`
   font-size: 48px;

@@ -7,20 +7,28 @@ import {
   CheckContainer,
   Search,
   Filter,
+  Input,
+  Apply,
 } from './styles';
 import { useState } from 'react';
 import SearchResult from '../SearchResult';
 
 function SearchBar() {
   const [word, setWord] = useState('');
+  const [categorie, setCategorie] = useState('');
+  const [label, setLabel] = useState('');
   const [openSeachResult, setOpenSearchResult] = useState(false);
   const handleSearch: any = () => {
     setOpenSearchResult(true);
+    console.log(label, categorie);
   };
   return (
     <Container>
       <Search>
-        <Bar onChange={(e) => setWord(e.target.value)} />
+        <Bar
+          onChange={(e) => setWord(e.target.value)}
+          placeholder='Título ...'
+        />
         <Button onClick={() => handleSearch()}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -42,23 +50,22 @@ function SearchBar() {
         <CheckContainer>
           <Checkbox type='checkbox' />
           <Label>Favoritos</Label>
-        </CheckContainer>
-        <CheckContainer>
-          <Checkbox type='checkbox' />
-          <Label>Ação</Label>
-        </CheckContainer>
-        <CheckContainer>
-          <Checkbox type='checkbox' />
-          <Label>Aventura</Label>
-        </CheckContainer>
-        <CheckContainer>
-          <Checkbox type='checkbox' />
-          <Label>Comédia</Label>
+          <Input
+            placeholder='Categoria'
+            onChange={(e) => setCategorie(e.target.value)}
+          />
+          <Input
+            placeholder='Label'
+            onChange={(e) => setLabel(e.target.value)}
+          />
+          <Apply>Aplicar</Apply>
         </CheckContainer>
       </Filter>
       <SearchResult
         openModal={openSeachResult}
         word={word}
+        categorie={categorie}
+        labels={label}
         actionClose={setOpenSearchResult}
       />
     </Container>

@@ -8,6 +8,8 @@ interface ISearchResult {
   openModal: boolean;
   word: string;
   actionClose: any;
+  categorie: string;
+  labels: string;
 }
 
 const customStyles = {
@@ -26,7 +28,13 @@ const customStyles = {
   },
 };
 
-function SearchResult({ openModal, word, actionClose }: ISearchResult) {
+function SearchResult({
+  openModal,
+  word,
+  actionClose,
+  categorie,
+  labels,
+}: ISearchResult) {
   const movies = useSelector((state: IRootReducer) => state.movie);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [searchMovieList, setSearchMovieList] = useState<any>([]);
@@ -35,8 +43,15 @@ function SearchResult({ openModal, word, actionClose }: ISearchResult) {
     const searchList = movies.movieList.filter((movie: IMovie) =>
       movie.title.includes(word)
     );
-    setSearchMovieList(searchList);
-  }, [openModal, word, movies.movieList]);
+
+    const labelFilter = searchList.map((movie) => {
+      if (movie.labels.find((label) => label.includes(labels)) == labels) {
+        return movie;
+      }
+    });
+
+    setSearchMovieList(labelFilter);
+  }, [openModal, word, movies.movieList, categorie, labels]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -51,6 +66,7 @@ function SearchResult({ openModal, word, actionClose }: ISearchResult) {
         contentLabel='Adicionar Filme'
       >
         {searchMovieList.map((movie: IMovie, index: number) => {
+          if (movie == undefined) return null;
           return (
             <Movie
               key={index}
@@ -58,6 +74,7 @@ function SearchResult({ openModal, word, actionClose }: ISearchResult) {
               categories={movie.categories}
               favorite={movie.favorite}
               index={index}
+              labels={movie.labels}
             />
           );
         })}

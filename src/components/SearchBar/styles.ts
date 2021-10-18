@@ -39,8 +39,8 @@ export const Search = styled.div`
   margin: 0 auto;
 `;
 export const Checkbox = styled.input`
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   background-color: #ebebeb;
   transition: 0.3s;
   border-radius: 5px;
@@ -80,3 +80,30 @@ export const Filter = styled.div`
   justify-content: space-evenly;
   margin-top: 10px;
 `;
+export const Input = styled.input`
+  font-style: italic;
+  max-width: 100px;
+  width: 100%;
+  background-color: #ebebeb;
+  height: 35px;
+  outline: none;
+  font-size: 12px;
+  color: #a4a3a3;
+  border: none;
+  padding-left: 25px;
+  border-radius: 5px;
+  margin-left: 5px;
+`;
+
+export const Apply = styled.button`
+  max-width: 100px;
+  width: 100%;
+  background-color: #fc6b0f;
+  height: 35px;
+  outline: none;
+  font-size: 12px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+`

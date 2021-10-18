@@ -10,6 +10,7 @@ function Result() {
 
   useEffect(() => {
     setMovieList(movies.movieList);
+    console.log('movieList', movies.movieList);
   }, [movies, movies.movieList]);
 
   return (
@@ -22,6 +23,7 @@ function Result() {
             categories={movie.categories}
             favorite={movie.favorite}
             index={index}
+            labels={movie.labels}
           />
         );
       })}

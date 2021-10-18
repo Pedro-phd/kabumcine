@@ -13,10 +13,21 @@ export const Title = styled.h1`
   margin: 0;
 `;
 export const Categorie = styled.p`
-  font-size: 12px;
+  font-size: 15px;
   color: #505050;
   display: inline-block;
   margin-right: 10px;
+`;
+
+export const Labels = styled.p`
+  font-size: 12px;
+  color: white;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #0071B8;
+  padding: 3px 5px;
+  border-radius: 50px;
+
 `;
 
 export const Favorite = styled.button`

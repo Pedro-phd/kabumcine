@@ -9,6 +9,7 @@ export interface IMovie {
   title: String;
   categories: Array<string>;
   favorite: boolean;
+  labels: Array<string>;
   index?: any;
 }
 
