@@ -35,7 +35,9 @@ function Movie({ title, categories, favorite, index }: IMovie) {
           <Trash />
         </TrashButton>
       </HeaderContainer>
-      <Categorie>{categories}</Categorie>
+      {categories.map((categorie) => {
+        return <Categorie key={Math.random()}>{categorie}</Categorie>;
+      })}
     </Container>
   );
 }

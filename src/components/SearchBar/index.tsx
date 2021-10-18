@@ -17,7 +17,6 @@ function SearchBar() {
   const handleSearch: any = () => {
     setOpenSearchResult(true);
   };
-
   return (
     <Container>
       <Search>

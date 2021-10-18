@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import {
   Form,
   Title,
@@ -13,9 +14,8 @@ import {
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { Add } from '../../redux/Movie/Movie.actions';
-import { useForm } from 'react-hook-form';
 
-import { IRootReducer } from '../../typings';
+import { IRootReducer } from '../../typings/index';
 
 const customStyles = {
   content: {
@@ -44,11 +44,11 @@ function AddMovie() {
       Add(
         {
           title: data.title,
-          categories: `
-        ${data.action ? 'Ação' : ''} 
-        ${data.adventure ? 'Aventura' : ''} 
-        ${data.comedy ? 'Comédia' : ''}
-      `,
+          categories: [
+            data.action ? 'Ação' : '',
+            data.adventure ? 'Aventura' : '',
+            data.comedy ? 'Comédia' : '',
+          ],
           favorite: data.favorite,
         },
         movies

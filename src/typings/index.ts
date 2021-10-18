@@ -7,7 +7,7 @@ export interface IMovieReducer {
 }
 export interface IMovie {
   title: String;
-  categories: String;
+  categories: Array<string>;
   favorite: boolean;
   index?: any;
 }
