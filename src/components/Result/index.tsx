@@ -10,7 +10,6 @@ function Result() {
 
   useEffect(() => {
     setMovieList(movies.movieList);
-    console.log('movieList', movies.movieList);
   }, [movies, movies.movieList]);
 
   return (

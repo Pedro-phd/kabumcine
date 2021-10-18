@@ -20,7 +20,6 @@ function SearchBar() {
   const [openSeachResult, setOpenSearchResult] = useState(false);
   const handleSearch: any = () => {
     setOpenSearchResult(true);
-    console.log(label, categorie);
   };
   return (
     <Container>

@@ -17,10 +17,9 @@ import toast, { Toaster } from 'react-hot-toast';
 function Movie({ title, categories, favorite, index, labels }: IMovie) {
   const movie = useSelector((state: IRootReducer) => state.movie);
   const dispatch = useDispatch();
-  console.log('categories', categories, 'labels', labels);
   const handleRemove = (index: number) => {
     dispatch(remove(index, movie));
-    toast('Filme exluido!', {
+    toast('Filme excluido!', {
       icon: '🗑️',
     });
   };

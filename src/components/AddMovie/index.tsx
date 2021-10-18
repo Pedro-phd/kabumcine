@@ -40,7 +40,6 @@ function AddMovie() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data.labels.split(';'));
     dispatch(
       Add(
         {
