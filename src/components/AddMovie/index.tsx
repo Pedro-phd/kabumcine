@@ -11,6 +11,8 @@ import {
   Label,
   InputField,
   Close,
+  Checkbox,
+  LabelCheck,
 } from './styles';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -82,6 +84,8 @@ function AddMovie() {
           <Form onSubmit={handleSubmit(onSubmit)}>
             <TitleInput {...register('title')} placeholder='Título ...' />
             <Filter>
+              <Checkbox type='checkbox' {...register('favorite')} />
+              <LabelCheck>Favoritos</LabelCheck>
               <InputField>
                 <Input {...register('categories')} placeholder='Categorias' />
                 <Label>Separe por ; as categorias</Label>

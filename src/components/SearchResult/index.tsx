@@ -8,8 +8,9 @@ interface ISearchResult {
   openModal: boolean;
   word: string;
   actionClose: any;
-  categorie: string;
+  categorieFilter: string;
   labels: string;
+  favorite: boolean;
 }
 
 const customStyles = {
@@ -32,26 +33,40 @@ function SearchResult({
   openModal,
   word,
   actionClose,
-  categorie,
+  categorieFilter,
   labels,
+  favorite,
 }: ISearchResult) {
   const movies = useSelector((state: IRootReducer) => state.movie);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [searchMovieList, setSearchMovieList] = useState<any>([]);
+  const [searchMovieList, setSearchMovieList] = useState<Array<any>>([]);
   useEffect(() => {
     setIsOpen(openModal);
     const searchList = movies.movieList.filter((movie: IMovie) =>
       movie.title.includes(word)
     );
 
-    const labelFilter = searchList.map((movie) => {
-      if (movie.labels.find((label) => label.includes(labels)) == labels) {
-        return movie;
+    const filterResult = searchList.map((movie) => {
+      if (
+        movie.labels.find((label) => label.indexOf(labels) >= 0) &&
+        movie.categories.find(
+          (categorie) => categorie.indexOf(categorieFilter) >= 0
+        )
+      ) {
+        if (favorite == true) {
+          if (movie.favorite == true) {
+            return movie;
+          } else {
+            return undefined;
+          }
+        } else {
+          return movie;
+        }
       }
     });
 
-    setSearchMovieList(labelFilter);
-  }, [openModal, word, movies.movieList, categorie, labels]);
+    setSearchMovieList(filterResult);
+  }, [openModal, word, movies.movieList, categorieFilter, labels]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -78,6 +93,9 @@ function SearchResult({
             />
           );
         })}
+        {searchMovieList.length == 0 && (
+          <h1>{'Nenhum resultado de busca ... :('}</h1>
+        )}
       </Modal>
     </>
   );

@@ -56,7 +56,7 @@ export const TitleInput = styled.input`
 `;
 export const Input = styled.input`
   font-style: italic;
-  max-width: 200px;
+  max-width: 150px;
   width: 100%;
   background-color: #ebebeb;
   height: 50px;
@@ -77,6 +77,7 @@ export const Filter = styled.div`
   margin: 40px auto;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
   @media screen and (max-width: 768px){
     flex-direction: column;
   }
@@ -100,6 +101,15 @@ export const Checkbox = styled.input`
     background-color: #0587c6;
   }
 `;
+
+export const LabelCheck = styled.label`
+  color: #a4a3a3;
+  font-size: 14px;
+  font-style: italic;
+  margin-left: 5px;
+  font-weight: 700;
+`;
+
 export const Label = styled.label`
   color: #a4a3a3;
   font-size: 12px;

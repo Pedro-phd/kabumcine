@@ -12,17 +12,20 @@ import {
 } from './styles';
 import { useState } from 'react';
 import SearchResult from '../SearchResult';
+import toast, { Toaster } from 'react-hot-toast';
 
 function SearchBar() {
   const [word, setWord] = useState('');
   const [categorie, setCategorie] = useState('');
   const [label, setLabel] = useState('');
+  const [filterFavorite, setFilterFavorite] = useState(false);
   const [openSeachResult, setOpenSearchResult] = useState(false);
   const handleSearch: any = () => {
     setOpenSearchResult(true);
   };
   return (
     <Container>
+      <Toaster />
       <Search>
         <Bar
           onChange={(e) => setWord(e.target.value)}
@@ -47,7 +50,10 @@ function SearchBar() {
       </Search>
       <Filter>
         <CheckContainer>
-          <Checkbox type='checkbox' />
+          <Checkbox
+            type='checkbox'
+            onChange={(e) => setFilterFavorite(!filterFavorite)}
+          />
           <Label>Favoritos</Label>
           <Input
             placeholder='Categoria'
@@ -57,14 +63,23 @@ function SearchBar() {
             placeholder='Label'
             onChange={(e) => setLabel(e.target.value)}
           />
-          <Apply>Aplicar</Apply>
+          <Apply
+            onClick={() =>
+              toast('Filtro aplicado! Clique na lupa para buscar!', {
+                icon: '🔍',
+              })
+            }
+          >
+            Aplicar
+          </Apply>
         </CheckContainer>
       </Filter>
       <SearchResult
         openModal={openSeachResult}
         word={word}
-        categorie={categorie}
+        categorieFilter={categorie}
         labels={label}
+        favorite={filterFavorite}
         actionClose={setOpenSearchResult}
       />
     </Container>
