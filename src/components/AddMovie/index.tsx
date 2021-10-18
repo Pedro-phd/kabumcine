@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Add } from '../../redux/Movie/Movie.actions';
 
 import { IRootReducer } from '../../typings/index';
+import Swal from 'sweetalert2';
 
 const customStyles = {
   content: {
@@ -51,6 +52,11 @@ function AddMovie() {
         movies
       )
     );
+    Swal.fire(
+      'Filme adicionado com sucesso!',
+      `Filme ${data.title} adicionado a sua lista!`,
+      'success'
+    );
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -74,14 +80,14 @@ function AddMovie() {
         <ModalContainer>
           <Title>Adicionar Filme</Title>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <TitleInput {...register('title')} />
+            <TitleInput {...register('title')} placeholder='Título ...' />
             <Filter>
               <InputField>
-                <Input {...register('categories')} />
+                <Input {...register('categories')} placeholder='Categorias' />
                 <Label>Separe por ; as categorias</Label>
               </InputField>
               <InputField>
-                <Input {...register('labels')} />
+                <Input {...register('labels')} placeholder='Labels' />
                 <Label>Separe por ; as labels</Label>
               </InputField>
             </Filter>
