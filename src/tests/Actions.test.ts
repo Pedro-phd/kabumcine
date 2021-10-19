@@ -30,7 +30,7 @@ describe('Actions tests', () => {
     expect(result).toStrictEqual({
       type: 'REMOVE',
       payload: {
-        id: 0,
+        index: 0,
         movies: ['movies'],
       },
     });

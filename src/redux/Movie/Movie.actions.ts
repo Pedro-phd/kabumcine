@@ -14,11 +14,11 @@ export function Add(
     },
   };
 }
-export function remove(id: number, movies: IMovieReducer) {
+export function remove(index: number, movies: IMovieReducer) {
   return {
     type: 'REMOVE',
     payload: {
-      id,
+      index,
       movies: movies.movieList,
     },
   };

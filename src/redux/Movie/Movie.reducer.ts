@@ -23,7 +23,7 @@ export default function MovieReducer(
       };
     case 'REMOVE':
       const movieList = action.payload.movies;
-      movieList.splice(action.payload.id, 1);
+      movieList.splice(action.payload.index, 1);
       return {
         movieList: [...movieList],
       };
