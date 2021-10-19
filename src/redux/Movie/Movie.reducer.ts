@@ -13,7 +13,8 @@ export default function MovieReducer(state = initialState, action: IReduxAction)
                     {
                         title: action.payload.title,
                         categories: action.payload.categories,
-                        labels:action.payload.labels
+                        labels:action.payload.labels,
+                        favorite:action.payload.favorite,
                     }
                 ]
             }

@@ -3,7 +3,7 @@ export interface IReduxAction {
   payload: any;
 }
 export interface IMovieReducer {
-  movieList: Array<IMovie>;
+  movieList: Array<IMovie | string>;
 }
 export interface IMovie {
   title: String;
