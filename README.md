@@ -1,46 +1,57 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![KABOMCINEtitle](https://user-images.githubusercontent.com/36482675/137922190-31b2008d-9beb-4b27-a6ae-de0c7ab11173.png)
 
-## Available Scripts
+Então na hora de fazer aquela recomendação de filme você esqueceu o nome dele ? 😥
 
-In the project directory, you can run:
+### 🎉 **Trouxemos a solução** 🎉
 
-### `yarn start`
+o **KABUMCINE** vem para te ajudar nessas ocasiões complicadas, com uma UI simples e limpa o **KABUMCINE** traz pra você uma ferramenta para salvar seus filmes e series favoritos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Com a possibilidade de adicionar categorias e labels a seus filmes, o filtro fica facil!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+🔫 Quer rever um filme de ação ? É só procurar por "**ação**" no campo de categorias!
 
-### `yarn test`
+🤣 Ta precisando recomendar um filme de comédia ? É só usar o filtro! 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+😍 Ta querendo assistir um filme na netflix com a/o crush ? Você também pode pesquisar pelas labels!
 
-### `yarn build`
+![giphy (1)](https://user-images.githubusercontent.com/36482675/137922569-7db06ed0-713a-43e3-b822-2a42e3ffc57b.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Features
+Quais as features presentes no projeto ? é isso que vamos rever nesse tópico!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Adicionar um filme! ✅
+Aqui, de maneira simples e intuitiva, você pode adicionar seus filmes com todas as informações que precisa para facilitar sua busca!
+Em Categoria e Labels use ; (ponto e virgula) para separar.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![adicionarFilme](https://user-images.githubusercontent.com/36482675/137924983-70e7fff8-047b-4933-8584-7129d9e574b8.gif)
 
-### `yarn eject`
+## Filtrar por Nome! ✨
+Lembra só um pedacinho do nome ? Pode usa-lo para pesquisar!
+![FiltroNome](https://user-images.githubusercontent.com/36482675/137926961-82253b99-2437-4359-a763-330514ce3a91.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Filtrar por Categoria! 😭🤣🔫
+Hoje quer assistir oque ? Um filme de ação ? Procure pela categoria!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![FiltroCategoria](https://user-images.githubusercontent.com/36482675/137927453-b57a938a-8c2d-461f-9c47-9e50561a82dd.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Filtrar por Label! 📺
+Quer um filme da netflix? Basta adicionar a label de Netflix aos seus filmes e pesquisar por ela :D
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![FiltroLabel](https://user-images.githubusercontent.com/36482675/137927659-9d56a8c5-2dce-4e71-b943-475937fc7cdb.gif)
 
-## Learn More
+## Filtrar por Favoritos! ⭐
+Procurando pelos seus filmes favoritos ? Facilitamos isso para você!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![FiltroFavoritos](https://user-images.githubusercontent.com/36482675/137928170-8a70f727-4e30-409d-8331-3c143e899333.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Feedbacks ao usuário! 💬✅❌
+
+Para que seja uma interface intuitiva de verdade, é sempre bom mostrar ao usuário que a ação foi concluída com sucesso!
+Para isso então temos os feedbacks! Por meio de toasts e alerts mostramos ao usuário que tudo ocorreu bem, e quando não ocorreu, avisamos também! 
+
+![Feedback 1](https://user-images.githubusercontent.com/36482675/137930467-c1547e84-3cc1-414c-a939-c1835ed94e6f.gif)
+![Feedback2](https://user-images.githubusercontent.com/36482675/137930479-9028b6a4-b4fb-4153-aba9-a41da85c99ac.gif)
+![Feedback3](https://user-images.githubusercontent.com/36482675/137930498-be9ed64f-99da-4e1a-b55c-e81b9181a49f.gif)
+
+
