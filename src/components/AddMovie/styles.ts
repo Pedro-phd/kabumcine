@@ -50,7 +50,7 @@ export const TitleInput = styled.input`
   padding-left: 25px;
   border-radius: 10px;
   margin: 0 auto;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     max-width: 300px;
   }
 `;
@@ -67,7 +67,6 @@ export const Input = styled.input`
   padding-left: 25px;
   border-radius: 10px;
   margin: 0 auto;
-  
 `;
 
 export const Filter = styled.div`
@@ -78,7 +77,7 @@ export const Filter = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -115,16 +114,16 @@ export const Label = styled.label`
   font-size: 12px;
   font-style: italic;
   margin-left: 5px;
-  @media screen and (max-width: 768px){
-    text-align:center;
-    margin-bottom:10px;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-bottom: 10px;
   }
 `;
 
 export const InputField = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
-`
+`;
 
 export const Title = styled.h1`
   font-size: 48px;

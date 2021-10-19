@@ -24,10 +24,9 @@ export const Labels = styled.p`
   color: white;
   display: inline-block;
   margin-right: 10px;
-  background-color: #0071B8;
+  background-color: #0071b8;
   padding: 3px 5px;
   border-radius: 50px;
-
 `;
 
 export const Favorite = styled.button`

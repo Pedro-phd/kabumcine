@@ -107,4 +107,4 @@ export const Apply = styled.button`
   border: none;
   border-radius: 5px;
   margin-left: 5px;
-`
+`;
