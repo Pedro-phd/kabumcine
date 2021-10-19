@@ -8,15 +8,20 @@ export default function MovieReducer(state = initialState, action: IReduxAction)
     switch(action.type) {
         case 'ADD':
             return {
-                movieList: action.payload
+                movieList: [
+                    ...action.payload.movies,
+                    {
+                        title: action.payload.title,
+                        categories: action.payload.categories,
+                        labels:action.payload.labels
+                    }
+                ]
             }
         case 'REMOVE':
+            const movieList = action.payload.movies
+            movieList.splice(action.payload.id,1)
             return {
-                movieList: action.payload
-            }
-        case 'SEARCH':
-            return {
-                movieList: action.payload
+                movieList: [...movieList]
             }
         default:
             return state
