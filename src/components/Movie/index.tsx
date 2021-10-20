@@ -9,16 +9,15 @@ import {
   TitleContainer,
 } from './styles';
 import { FavoriteFalse, FavoriteTrue, Trash } from '../Icons';
-import { useSelector, useDispatch } from 'react-redux';
-import { remove } from '../../redux/Movie/Movie.actions';
+import { useDispatch } from 'react-redux';
+import { Remove } from '../../redux/Movie/Movie.actions';
 import { IMovie, IRootReducer } from '../../typings';
 import toast, { Toaster } from 'react-hot-toast';
 
 function Movie({ title, categories, favorite, id, labels }: IMovie) {
-  const movie = useSelector((state: IRootReducer) => state.movie);
   const dispatch = useDispatch();
   const handleRemove = (id: string) => {
-    dispatch(remove(id, movie));
+    dispatch(Remove(id));
     toast('Filme excluido!', {
       icon: '🗑️',
     });

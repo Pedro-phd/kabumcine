@@ -16,10 +16,8 @@ import {
   LabelCheck,
 } from './styles';
 import Modal from 'react-modal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Add } from '../../redux/Movie/Movie.actions';
-
-import { IRootReducer } from '../../typings/index';
 import Swal from 'sweetalert2';
 
 const customStyles = {
@@ -38,7 +36,6 @@ const customStyles = {
 };
 
 function AddMovie() {
-  const movies = useSelector((state: IRootReducer) => state.movie);
   const dispatch = useDispatch();
 
   const { register, handleSubmit } = useForm();

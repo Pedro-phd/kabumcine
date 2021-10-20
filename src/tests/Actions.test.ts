@@ -1,4 +1,5 @@
-import { Add, remove } from '../redux/Movie/Movie.actions';
+import { Add, Remove } from '../redux/Movie/Movie.actions';
+
 describe('Actions tests', () => {
   it('Must validate if the action returns the correct dispatch', () => {
     const result = Add(
@@ -21,7 +22,7 @@ describe('Actions tests', () => {
   });
 
   it('Must validate if the action returns the correct dispatch', () => {
-    const result = remove("123");
+    const result = Remove("123");
 
     expect(result).toStrictEqual({
       type: 'REMOVE',

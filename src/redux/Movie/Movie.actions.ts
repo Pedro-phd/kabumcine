@@ -1,4 +1,3 @@
-import { v1 } from 'uuid';
 import { IActionAdd } from '../../typings';
 export function Add(payload: IActionAdd) {
   return {
@@ -6,7 +5,7 @@ export function Add(payload: IActionAdd) {
     payload
   };
 }
-export function remove(payload: string) {
+export function Remove(payload: string) {
   return {
     type: 'REMOVE',
     payload

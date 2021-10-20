@@ -3,7 +3,7 @@ import { Text, Color } from './styles';
 function Title() {
   return (
     <Text>
-      KABOM<Color>CINE</Color>
+      KABUM<Color>CINE</Color>
     </Text>
   );
 }
