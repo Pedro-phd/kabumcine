@@ -47,11 +47,23 @@ function SearchResult({
     );
 
     const filterResult = searchList.map((movie) => {
+      if (labels == '' && categorieFilter == '') {
+        if (favorite == true) {
+          if (movie.favorite == true) {
+            return movie;
+          } else {
+            return undefined;
+          }
+        } else {
+          return movie;
+        }
+      }
+
       if (
-        movie.labels.find((label) => label.indexOf(labels) >= 0) &&
+        movie.labels.find((label) => label.indexOf(labels) >= 0) == labels &&
         movie.categories.find(
           (categorie) => categorie.indexOf(categorieFilter) >= 0
-        )
+        ) == categorieFilter
       ) {
         if (favorite == true) {
           if (movie.favorite == true) {
