@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { v1 } from 'uuid';
 import {
   Form,
   Title,
@@ -45,15 +46,12 @@ function AddMovie() {
   const onSubmit = (data: any) => {
     if (data.title.trim() != '') {
       dispatch(
-        Add(
-          {
-            title: data.title,
-            categories: data.categories.split(';'),
-            labels: data.labels.split(';'),
-            favorite: data.favorite,
-          },
-          movies
-        )
+        Add({
+          title: data.title,
+          categories: data.categories.split(';'),
+          labels: data.labels.split(';'),
+          favorite: data.favorite,
+        })
       );
       Swal.fire(
         'Filme adicionado com sucesso!',

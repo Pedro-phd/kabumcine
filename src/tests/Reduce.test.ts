@@ -1,9 +1,28 @@
 import MovieReducer from '../redux/Movie/Movie.reducer';
 import { IMovieReducer } from '../typings/index';
+import { v1 } from 'uuid';
+
+jest.mock('uuid');
 
 const initialState: IMovieReducer = {
-  movieList: [],
+  movieList: [
+    {
+      id: '123',
+      title: 'Venom',
+      categories: ['ação'],
+      favorite: false,
+      labels: ['netflix'],
+    },
+    {
+      id: '189',
+      title: 'homem aranha',
+      categories: ['aventura'],
+      favorite: true,
+      labels: ['prime'],
+    },
+  ],
 };
+
 const actionAdd = {
   type: 'ADD',
   payload: {
@@ -11,25 +30,24 @@ const actionAdd = {
     categories: ['teste'],
     labels: ['teste'],
     favorite: true,
-    movies: ['movies'],
   },
 };
+
 const actionRemove = {
   type: 'REMOVE',
-  payload: {
-    id: 0,
-    movies: ['movies', 'teste'],
-  },
+  payload: '123'
 };
 
 describe('Reduce tests', () => {
   it('Must validate if the reduce of add returns the correct state', () => {
+    (v1 as jest.Mock).mockImplementation(() => '157');
     const result = MovieReducer(initialState, actionAdd);
 
     expect(result).toStrictEqual({
       movieList: [
-        ...actionAdd.payload.movies,
+        ...initialState.movieList,
         {
+          id: '157',
           title: 'test',
           categories: ['teste'],
           labels: ['teste'],
@@ -43,7 +61,13 @@ describe('Reduce tests', () => {
     const result = MovieReducer(initialState, actionRemove);
 
     expect(result).toStrictEqual({
-      movieList: ['teste'],
+      movieList: [{
+        id: '189',
+        title: 'homem aranha',
+        categories: ['aventura'],
+        favorite: true,
+        labels: ['prime'],
+      }],
     });
   });
 });

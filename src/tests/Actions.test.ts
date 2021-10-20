@@ -4,35 +4,28 @@ describe('Actions tests', () => {
     const result = Add(
       {
         title: 'test',
-        categories: ['teste'],
-        labels: ['teste'],
+        categories: ['test'],
+        labels: ['test'],
         favorite: true,
-      },
-      {
-        movieList: ['movies'],
       }
     );
     expect(result).toStrictEqual({
       type: 'ADD',
       payload: {
         title: 'test',
-        categories: ['teste'],
-        labels: ['teste'],
+        categories: ['test'],
+        labels: ['test'],
         favorite: true,
-        movies: ['movies'],
       },
     });
   });
 
   it('Must validate if the action returns the correct dispatch', () => {
-    const result = remove(0, { movieList: ['movies'] });
+    const result = remove("123");
 
     expect(result).toStrictEqual({
       type: 'REMOVE',
-      payload: {
-        index: 0,
-        movies: ['movies'],
-      },
+      payload: "123"
     });
   });
 });

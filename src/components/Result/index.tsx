@@ -14,18 +14,10 @@ function Result() {
 
   return (
     <>
-      {movieList.map((movie: IMovie, index: number) => {
-        return (
-          <Movie
-            key={index}
-            title={movie.title}
-            categories={movie.categories}
-            favorite={movie.favorite}
-            index={index}
-            labels={movie.labels}
-          />
-        );
-      })}
+      {' '}
+      {movieList.map((movie: IMovie) => (
+        <Movie key={movie.id} {...movie} />
+      ))}{' '}
     </>
   );
 }

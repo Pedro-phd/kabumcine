@@ -82,16 +82,7 @@ function SearchResult({
       >
         {searchMovieList.map((movie: IMovie, index: number) => {
           if (movie == undefined) return null;
-          return (
-            <Movie
-              key={index}
-              title={movie.title}
-              categories={movie.categories}
-              favorite={movie.favorite}
-              index={index}
-              labels={movie.labels}
-            />
-          );
+          return <Movie key={movie.id} {...movie} />;
         })}
         {searchMovieList.length == 0 && (
           <h1>{'Nenhum resultado de busca ... :('}</h1>

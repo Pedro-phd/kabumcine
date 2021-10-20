@@ -1,4 +1,5 @@
-import { IReduxAction, IMovieReducer } from '../../typings';
+import { v1 } from 'uuid';
+import { IReduxAction, IMovieReducer, IMovieAdd } from '../../typings';
 
 const initialState: IMovieReducer = {
   movieList: [],
@@ -6,26 +7,28 @@ const initialState: IMovieReducer = {
 
 export default function MovieReducer(
   state = initialState,
-  action: IReduxAction
+  { type, payload }: IReduxAction
 ) {
-  switch (action.type) {
+  switch (type) {
     case 'ADD':
+      const { title, categories, favorite, labels } = payload as IMovieAdd;
       return {
         movieList: [
-          ...action.payload.movies,
+          ...state.movieList,
           {
-            title: action.payload.title,
-            categories: action.payload.categories,
-            labels: action.payload.labels,
-            favorite: action.payload.favorite,
+            id: v1(),
+            title,
+            categories,
+            labels,
+            favorite,
           },
         ],
       };
     case 'REMOVE':
-      const movieList = action.payload.movies;
-      movieList.splice(action.payload.index, 1);
+      const movieList = state.movieList;
+      const newList = movieList.filter((movie) => movie.id != payload);
       return {
-        movieList: [...movieList],
+        movieList: [...newList],
       };
     default:
       return state;

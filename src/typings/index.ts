@@ -1,17 +1,25 @@
 export interface IReduxAction {
-  type: String;
-  payload: any;
+  type: string;
+  payload: IMovieAdd | string;
 }
 export interface IMovieReducer {
-  movieList: Array<IMovie | string>;
+  movieList: Array<IMovie>;
 }
-export interface IMovie {
-  title: String;
+export interface IActionAdd {
+  title: string;
   categories: Array<string>;
   favorite: boolean;
   labels: Array<string>;
-  index?: any;
 }
+export interface IMovie {
+  id: string
+  title: string;
+  categories: Array<string>;
+  favorite: boolean;
+  labels: Array<string>;
+}
+export type IMovieAdd = Omit<IMovie, "id">
+  
 
 export interface IRootReducer {
   movie: IMovieReducer;

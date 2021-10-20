@@ -1,25 +1,14 @@
-import { IMovie, IMovieReducer } from '../../typings';
-export function Add(
-  { title, categories, favorite, labels }: IMovie,
-  movies: IMovieReducer
-) {
+import { v1 } from 'uuid';
+import { IActionAdd } from '../../typings';
+export function Add(payload: IActionAdd) {
   return {
     type: 'ADD',
-    payload: {
-      title,
-      categories,
-      favorite,
-      labels,
-      movies: movies.movieList,
-    },
+    payload
   };
 }
-export function remove(index: number, movies: IMovieReducer) {
+export function remove(payload: string) {
   return {
     type: 'REMOVE',
-    payload: {
-      index,
-      movies: movies.movieList,
-    },
+    payload
   };
 }

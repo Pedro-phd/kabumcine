@@ -14,11 +14,11 @@ import { remove } from '../../redux/Movie/Movie.actions';
 import { IMovie, IRootReducer } from '../../typings';
 import toast, { Toaster } from 'react-hot-toast';
 
-function Movie({ title, categories, favorite, index, labels }: IMovie) {
+function Movie({ title, categories, favorite, id, labels }: IMovie) {
   const movie = useSelector((state: IRootReducer) => state.movie);
   const dispatch = useDispatch();
-  const handleRemove = (index: number) => {
-    dispatch(remove(index, movie));
+  const handleRemove = (id: string) => {
+    dispatch(remove(id, movie));
     toast('Filme excluido!', {
       icon: '🗑️',
     });
@@ -33,7 +33,7 @@ function Movie({ title, categories, favorite, index, labels }: IMovie) {
         </TitleContainer>
         <TrashButton
           onClick={() => {
-            handleRemove(index);
+            handleRemove(id);
           }}
         >
           <Trash />
