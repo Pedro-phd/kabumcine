@@ -58,12 +58,14 @@ function SearchResult({
           return movie;
         }
       }
-
       if (
-        movie.labels.find((label) => label.indexOf(labels) >= 0) == labels &&
-        movie.categories.find(
-          (categorie) => categorie.indexOf(categorieFilter) >= 0
-        ) == categorieFilter
+        (movie.labels.find((label) => label.includes(labels.trim())) ==
+          labels.trim() ||
+          labels == '') &&
+        (movie.categories.find((categorie) =>
+          categorie.includes(categorieFilter.trim())
+        ) == categorieFilter.trim() ||
+          categorieFilter == '')
       ) {
         if (favorite == true) {
           if (movie.favorite == true) {
